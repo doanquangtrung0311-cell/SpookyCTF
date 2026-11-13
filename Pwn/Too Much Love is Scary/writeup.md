@@ -118,19 +118,19 @@ void print_flag(int param_1,int param_2)
 
 ### Thuật toán giải mã:
 
-Mỗi byte trong mảng `local_38` được giải mã bằng phép toán XOR:
+Mỗi byte trong mảng local_38 được giải mã bằng phép toán XOR:
 
-$$\text{Plaintext} = \text{Ciphertext} \oplus ((end - start) + 0x47)$$
+Plaintext = Ciphertext ^ ((end - start) + 0x47)
 
-Vì định dạng flag bắt đầu bằng `spooky{`, byte đầu tiên của mảng mã hóa là `0x29`. Ta tính được Key:
+Vì định dạng flag bắt đầu bằng spooky{, byte đầu tiên của mảng mã hóa là 0x29. Ta tính được Key:
 
-$$0x29 \oplus \text{Key} = 0x73 \text{ ('s')} \implies \text{Key} = 90$$
+0x29 ^ Key = 0x73 ('s') => Key = 90
 
 Thay vào công thức:
 
-$$90 = (end - start) + 71 \implies end - start = 19$$
+90 = (end - start) + 71 => end - start = 19
 
-Với `start = 32`, suy ra `end = 32 + 19 = 51`
+Với start = 32, suy ra end = 32 + 19 = 51.
 
 ---
 
