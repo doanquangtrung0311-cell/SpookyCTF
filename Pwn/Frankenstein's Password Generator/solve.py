@@ -1,18 +1,19 @@
 from pwn import *
 
 context.binary = './frankenstein'
-context.log_level = 'debug'  # Bật chế độ debug để thấy rõ data gửi/nhận
+context.log_level = 'info'
 
 def exploit():
+    # Khởi động tiến trình
     io = process('./frankenstein')
     
-    # Chuỗi chính xác tuyệt đối, không khoảng trắng, viết hoa 100%
+    # Payload chính xác
     payload = b'BOLTATMIDNIGHT'
     
-    # Gửi payload sau khi nhận được prompt
+    # Gửi payload sau khi nhận được yêu cầu
     io.sendlineafter(b'Activation phrase: ', payload)
     
-    # Nhận toàn bộ kết quả phản hồi
+    # Nhận toàn bộ phản hồi từ chương trình (bao gồm thông điệp giải mã)
     response = io.recvall(timeout=2)
     
     print("\n[+] Kết quả từ chương trình:")
