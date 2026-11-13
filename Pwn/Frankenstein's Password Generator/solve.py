@@ -7,7 +7,7 @@ def exploit():
     io = process('./frankenstein')
     
     # Chuỗi chính xác tuyệt đối, không khoảng trắng, viết hoa 100%
-    payload = b'BOLTATMINDNIGHT'
+    payload = b'BOLTATMIDNIGHT'
     
     # Gửi payload sau khi nhận được prompt
     io.sendlineafter(b'Activation phrase: ', payload)
